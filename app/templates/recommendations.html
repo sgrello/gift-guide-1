@@ -1,0 +1,19 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gift Recommendations</title>
+</head>
+<body>
+    <h1>Gift Recommendations</h1>
+    {% for product in products %}
+        <div>
+            <h2>{{ product['title'] }}</h2>
+            <p>{{ product['price'] }}</p>
+            <a href="{{ product['link'] }}">Buy Now</a>
+        </div>
+    {% endfor %}
+</body>
+</html>
