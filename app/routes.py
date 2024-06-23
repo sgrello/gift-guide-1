@@ -52,3 +52,13 @@ def recommend():
     search_phrases = generate_search_phrases(details, num_ideas)
     products = [{'title': phrase} for phrase in search_phrases]
     return render_template('recommendations.html', products=products)
+
+
+
+@app.route('/guide_for_him')
+def guide_for_him():
+    return render_template('guide-forhim.html')
+
+@app.route('/guide_for_her')
+def guide_for_her():
+    return render_template('guide-forher.html')
