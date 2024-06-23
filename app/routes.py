@@ -3,7 +3,7 @@
 
 
 
-from flask import render_template, request
+from flask import render_template, request, url_for
 from app import app
 import openai
 import os
@@ -57,8 +57,8 @@ def recommend():
 
 @app.route('/guide_for_him')
 def guide_for_him():
-    return render_template('guide-forhim.html')
+    return render_template('guide_for_him.html')
 
 @app.route('/guide_for_her')
 def guide_for_her():
-    return render_template('guide-forher.html')
+    return render_template('guide_for_her.html')

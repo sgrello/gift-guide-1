@@ -115,46 +115,18 @@
 </head>
 <body>
     <div class="nav">
-        <a href="/">Home</a>
+        <a href="{{ url_for('home') }}">Home</a>
         <div class="dropdown">
             <button class="dropbtn">Gift Guides</button>
             <div class="dropdown-content">
-                <a href="/guide_for_him">For Him</a>
-                <a href="/guide_for_her">For Her</a>
-                <a href="/guide_for_mom">For Mom</a>
-                <a href="/guide_for_dad">For Dad</a>
-                <a href="/guide_for_doggo">For the Doggo</a>
-                <a href="/guide_for_kitty">For the Kitty</a>
-                <a href="/guide_for_kids">For the Kids</a>
-                <a href="/guide_for_coworker">For the Coworker</a>
-                <a href="/guide_for_boss">For the Boss</a>
-                <a href="/guide_office_prankster">For the Office Prankster</a>
-                <a href="/guide_meme_lover">For the Meme Lover</a>
-                <a href="/guide_lazy_person">For the Lazy Person</a>
-                <a href="/guide_picky_eater">For the Picky Eater</a>
-                <a href="/guide_couch_potato">For the Couch Potato</a>
-                <a href="/guide_gadget_geek">For the Gadget Geek</a>
-                <a href="/guide_cat_lady_guy">For the Cat Lady/Guy</a>
-                <a href="/guide_dog_dad_mom">For the Dog Dad/Mom</a>
-                <a href="/guide_overly_prepared">For the Overly Prepared</a>
-                <a href="/guide_aspiring_chef">For the Aspiring Chef</a>
-                <a href="/guide_plant_killer">For the Plant Killer</a>
-                <a href="/guide_pun_lover">For the Pun Lover</a>
-                <a href="/guide_social_media_influencer">For the Social Media Influencer</a>
-                <a href="/guide_diy_enthusiast">For the DIY Enthusiast</a>
-                <a href="/guide_fitness_fanatic">For the Fitness Fanatic</a>
-                <a href="/guide_travel_junkie">For the Travel Junkie</a>
-                <a href="/guide_wine_lover">For the Wine Lover</a>
-                <a href="/guide_coffee_addict">For the Coffee Addict</a>
-                <a href="/guide_craft_beer_connoisseur">For the Craft Beer Connoisseur</a>
-                <a href="/guide_aspiring_superhero">For the Aspiring Superhero</a>
-                <!-- Add more links as needed -->
+                <a href="{{ url_for('guide_for_him') }}">For Him</a>
+                <a href="{{ url_for('guide_for_her') }}">For Her</a>
             </div>
         </div>
     </div>
     <div class="container">
         <h1>Find the Perfect Gift</h1>
-        <form action="/recommend" method="post">
+        <form action="{{ url_for('recommend') }}" method="post">
             <label for="details">Recipient Details:</label>
             <textarea id="details" name="details" rows="4" cols="50" placeholder="Enter details about the recipient..."></textarea>
             <label for="num_ideas">Number of Gift Ideas:</label>
