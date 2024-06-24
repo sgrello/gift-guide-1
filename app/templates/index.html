@@ -2,66 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Find the Perfect Gift</title>
+    <title>Find the Perfect Gift | Shoppr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            font-family: Arial, sans-serif;
             background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
         }
         .nav {
             width: 100%;
-            background-color: #333;
-            overflow: hidden;
+            background-color: #007bff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+        .nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        .nav .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         .nav a {
-            float: left;
-            display: block;
             color: white;
-            text-align: center;
-            padding: 14px 16px;
+            padding: 10px 15px;
             text-decoration: none;
         }
         .nav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #0056b3;
+            border-radius: 5px;
         }
         .dropdown {
-            float: left;
-            overflow: hidden;
+            position: relative;
+            display: inline-block;
         }
         .dropdown .dropbtn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
             font-size: 16px;
             border: none;
-            outline: none;
-            color: white;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
+            cursor: pointer;
         }
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: #f9f9f9;
-            min-width: 160px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
-            max-height: 300px; /* Set max height for scrolling */
-            overflow-y: auto; /* Enable vertical scrolling */
+            border-radius: 5px;
+            overflow: hidden;
         }
         .dropdown-content a {
-            float: none;
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-            text-align: left;
         }
         .dropdown-content a:hover {
             background-color: #ddd;
@@ -69,40 +76,55 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        .container {
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 60px 20px;
             text-align: center;
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
-        h1 {
-            margin-bottom: 20px;
-            color: #333;
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
         form {
             display: flex;
             flex-direction: column;
+            align-items: center;
+        }
+        .instructions {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
         }
         label {
             margin-bottom: 10px;
             font-weight: bold;
-            color: #555;
         }
         textarea, input[type="number"] {
-            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
         }
         input[type="submit"] {
             padding: 10px 20px;
             font-size: 16px;
-            color: #fff;
+            color: white;
             background-color: #007bff;
             border: none;
             border-radius: 5px;
@@ -111,28 +133,142 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .section p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .section .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .section .btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .dropdown .dropbtn {
+                width: 100%;
+            }
+            .dropdown-content {
+                width: 100%;
+            }
+            .header h1 {
+                font-size: 28px;
+            }
+            .header p {
+                font-size: 18px;
+            }
+            .container {
+                padding: 15px;
+            }
+            .section {
+                padding: 20px 10px;
+            }
+            .section h2 {
+                font-size: 24px;
+            }
+            .section p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .header p {
+                font-size: 16px;
+            }
+            .instructions {
+                font-size: 12px;
+            }
+            .section h2 {
+                font-size: 20px;
+            }
+            .section p {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="nav">
-        <a href="{{ url_for('home') }}">Home</a>
-        <div class="dropdown">
-            <button class="dropbtn">Gift Guides</button>
-            <div class="dropdown-content">
-                <a href="{{ url_for('guide_for_him') }}">For Him</a>
-                <a href="{{ url_for('guide_for_her') }}">For Her</a>
+        <a href="{{ url_for('home') }}" class="logo">Shoppr</a>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Gift Guides</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('guide_for_him') }}">For Him</a>
+                    <a href="{{ url_for('guide_for_her') }}">For Her</a>
+                </div>
             </div>
+            <a href="">About</a>
+            <a href="">Contact</a>
         </div>
     </div>
-    <div class="container">
+
+    <div class="header">
         <h1>Find the Perfect Gift</h1>
+        <p>Discover the best gifts for any occasion</p>
+    </div>
+
+    <div class="container">
         <form action="{{ url_for('recommend') }}" method="post">
+            <div class="instructions">Enter as much (or as little) detail as you would like about the recipient, occasion, etc.</div>
             <label for="details">Recipient Details:</label>
-            <textarea id="details" name="details" rows="4" cols="50" placeholder="Enter details about the recipient..."></textarea>
-            <label for="num_ideas">Number of Gift Ideas:</label>
-            <input type="number" id="num_ideas" name="num_ideas" min="1" max="10" value="5">
+            <textarea id="details" name="details" rows="4" placeholder="Enter details about the recipient..."></textarea>
             <input type="submit" value="Find Gifts">
         </form>
+    </div>
+
+    <!-- Placeholder for additional sections -->
+    <div class="section">
+        <h2>How It Works</h2>
+        <p>Learn how our AI-powered gift recommendation engine helps you find the perfect gifts for your loved ones.</p>
+        <a href="" class="btn">Learn More</a>
+    </div>
+
+    <div class="section">
+        <h2>Why Choose Us</h2>
+        <p>Discover the benefits of using Shoppr for all your gift-giving needs, from personalized recommendations to exclusive deals.</p>
+        <a href="" class="btn">Find Out More</a>
+    </div>
+
+    <div class="section">
+        <h2>Customer Testimonials</h2>
+        <p>See what our satisfied customers have to say about their experience with Shoppr.</p>
+        <a href="" class="btn">Read Testimonials</a>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Shoppr. All rights reserved.</p>
     </div>
 </body>
 </html>

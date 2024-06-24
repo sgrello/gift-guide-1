@@ -15,9 +15,9 @@ load_dotenv()
 # OpenAI API key
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-def generate_search_phrases(details, num_ideas):
+def generate_search_phrases(details):
     prompt = (
-        f"Based on the following details: {details}, suggest {num_ideas} highly relevant and specific search phrases "
+        f"Based on the following details: {details}, suggest 5 highly relevant and specific search phrases "
         f"to find gift items on Amazon. Consider the recipient's interests and preferences. "
         f"Each search phrase/gift idea should be a specific product that someone would search for on Amazon but avoid using too specific brand names or things of that sort. "
         f"Avoid too many similar suggestions and focus on things that relate to the details as well as broader things that that type of person would also be interested in. The final output should just be simple search terms for the items and nothing more."
@@ -29,7 +29,7 @@ def generate_search_phrases(details, num_ideas):
             {"role": "system", "content": "You are a helpful gift idea assistant specializing in finding gifts on Amazon."},
             {"role": "user", "content": prompt}
         ],
-        max_tokens=150 + num_ideas * 10,  # Adjust max_tokens based on the number of ideas requested
+        max_tokens=150 * 10,  # Adjust max_tokens based on the number of ideas requested
         temperature=0.7
     )
 
@@ -48,8 +48,7 @@ def home():
 @app.route('/recommend', methods=['POST'])
 def recommend():
     details = request.form['details']
-    num_ideas = int(request.form['num_ideas'])
-    search_phrases = generate_search_phrases(details, num_ideas)
+    search_phrases = generate_search_phrases(details)
     products = [{'title': phrase} for phrase in search_phrases]
     return render_template('recommendations.html', products=products)
 
