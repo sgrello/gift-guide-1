@@ -45,9 +45,9 @@ def generate_search_phrases(details):
 def home():
     return render_template('index.html')
 
-@app.route('/recommend', methods=['POST'])
+@app.route('/recommend', methods=['GET'])
 def recommend():
-    details = request.form['details']
+    details = request.args.get('details', '')
     search_phrases = generate_search_phrases(details)
     products = [{'title': phrase} for phrase in search_phrases]
     return render_template('recommendations.html', products=products)
