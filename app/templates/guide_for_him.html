@@ -41,40 +41,23 @@
         }
         .nav a:hover {
             background-color: #0056b3;
+            color: white;
             border-radius: 5px;
         }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown .dropbtn {
+        .header {
             background-color: #007bff;
             color: white;
-            padding: 10px 15px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
+            padding: 60px 20px;
+            text-align: center;
+            box-sizing: border-box;
         }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 5px;
-            overflow: hidden;
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
         }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
+        .header p {
+            font-size: 18px;
+            margin: 10px 0 0;
         }
         .container {
             max-width: 1200px;
@@ -131,12 +114,6 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .dropdown .dropbtn {
-                width: 100%;
-            }
-            .dropdown-content {
-                width: 100%;
-            }
             .container {
                 padding: 15px;
             }
@@ -164,16 +141,10 @@
 </head>
 <body>
     <div class="nav">
-        <a href="{{ url_for('home') }}" class="logo">Shoppr</a>
+        <a href="{{ url_for('home') }}" class="logo">GiftScout</a>
         <div class="nav-links">
             <a href="{{ url_for('home') }}">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn">Gift Guides</button>
-                <div class="dropdown-content">
-                    <a href="{{ url_for('guide_for_him') }}">For Him</a>
-                    <a href="{{ url_for('guide_for_her') }}">For Her</a>
-                </div>
-            </div>
+            <a href="{{ url_for('gift_guide_collection') }}">Gift Guides</a>
             <a href="">About</a>
             <a href="">Contact</a>
         </div>

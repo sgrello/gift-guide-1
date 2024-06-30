@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GiftScout | Find the Perfect Gift in Seconds </title>
+    <title>GiftScout | Find the Perfect Gift in Seconds</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -42,39 +42,6 @@
         .nav a:hover {
             background-color: #0056b3;
             border-radius: 5px;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown .dropbtn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 15px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
         }
         .header {
             background-color: #007bff;
@@ -129,6 +96,7 @@
             font-size: 16px;
             margin-bottom: 20px;
             box-sizing: border-box;
+            resize: none;
         }
         input[type="submit"] {
             padding: 10px 20px;
@@ -195,6 +163,27 @@
         .section .btn:hover {
             background-color: #0056b3;
         }
+        .why-choose-us {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .why-choose-us .feature {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .why-choose-us .feature h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .why-choose-us .feature p {
+            font-size: 14px;
+            color: #333;
+        }
         .footer {
             background-color: #333;
             color: white;
@@ -207,12 +196,6 @@
             .nav {
                 flex-direction: column;
                 align-items: flex-start;
-            }
-            .dropdown .dropbtn {
-                width: 100%;
-            }
-            .dropdown-content {
-                width: 100%;
             }
             .header h1 {
                 font-size: 28px;
@@ -230,6 +213,9 @@
             .how-it-works .step {
                 max-width: none;
                 width: 80%;
+            }
+            .why-choose-us {
+                grid-template-columns: 1fr;
             }
         }
         @media (max-width: 480px) {
@@ -249,6 +235,12 @@
                 font-size: 18px;
             }
             .how-it-works .step p {
+                font-size: 12px;
+            }
+            .why-choose-us .feature h3 {
+                font-size: 16px;
+            }
+            .why-choose-us .feature p {
                 font-size: 12px;
             }
         }
@@ -307,13 +299,7 @@
         <a href="{{ url_for('home') }}" class="logo">GiftScout</a>
         <div class="nav-links">
             <a href="{{ url_for('home') }}">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn">Gift Guides</button>
-                <div class="dropdown-content">
-                    <a href="{{ url_for('guide_for_him') }}">For Him</a>
-                    <a href="{{ url_for('guide_for_her') }}">For Her</a>
-                </div>
-            </div>
+            <a href="{{ url_for('gift_guide_collection') }}">Gift Guides</a>
             <a href="">About</a>
             <a href="">Contact</a>
         </div>
@@ -347,7 +333,7 @@
             </div>
             <div class="step">
                 <div class="number">2</div>
-                <h3>AI Suggestions</h3>
+                <h3>Generate Suggestions</h3>
                 <p>Our smart AI generates personalized gift ideas based on your input, 
                     taking into account the recipient's interests, preferences, and the special occasion. 
                     It's like having a personal shopper who knows exactly what will make them smile!</p>
@@ -366,18 +352,40 @@
 
     <div class="section">
         <h2>Why Choose Us</h2>
-        <p>Discover the benefits of using Shoppr for all your gift-giving needs, from personalized recommendations to exclusive deals.</p>
+        <div class="why-choose-us">
+            <div class="feature">
+                <h3>Privacy First</h3>
+                <p>We never collect or save any user information. Your details stay private, always.</p>
+            </div>
+            <div class="feature">
+                <h3>Top-Quality Recommendations</h3>
+                <p>Our suggestions are curated from high-quality, trusted sources to ensure you find the perfect gift.</p>
+            </div>
+            <div class="feature">
+                <h3>Hyper-Personalized</h3>
+                <p>Our AI-driven algorithms are tailored to your input, ensuring every recommendation is spot-on.</p>
+            </div>
+            <div class="feature">
+                <h3>Always Improving</h3>
+                <p>Our system continuously learns and improves to provide even better suggestions over time.</p>
+            </div>
+            <div class="feature">
+                <h3>Quick and Easy</h3>
+                <p>Find the perfect gift in seconds without endless searching.</p>
+            </div>
+        </div>
+        <p>Discover the benefits of using GiftScout for all your gift-giving needs, from personalized recommendations to exclusive deals.</p>
         <a href="" class="btn">Find Out More</a>
     </div>
 
     <div class="section">
         <h2>Customer Testimonials</h2>
-        <p>See what our satisfied customers have to say about their experience with Shoppr.</p>
+        <p>See what our customers have to say about their experience with GiftScout.</p>
         <a href="" class="btn">Read Testimonials</a>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Shoppr. All rights reserved.</p>
+        <p>&copy; 2024 GiftScout. All rights reserved.</p>
     </div>
 </body>
 </html>

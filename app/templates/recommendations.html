@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shoppr | Gift Recommendations</title>
+    <title>GiftScout | Gift Recommendations</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -106,6 +106,7 @@
             color: #555;
             margin-bottom: 20px;
             text-align: center;
+            position: relative;
         }
         label {
             margin-bottom: 10px;
@@ -120,6 +121,7 @@
             font-size: 16px;
             margin-bottom: 20px;
             box-sizing: border-box;
+            resize: none;
         }
         input[type="submit"] {
             padding: 10px 20px;
@@ -214,7 +216,7 @@
 </head>
 <body>
     <div class="nav">
-        <a href="{{ url_for('home') }}" class="logo">Shoppr</a>
+        <a href="{{ url_for('home') }}" class="logo">GiftScout</a>
         <div class="nav-links">
             <a href="{{ url_for('home') }}">Home</a>
             <div class="dropdown">
@@ -235,9 +237,9 @@
 
     <div class="container">
         <form action="{{ url_for('recommend') }}" method="get">
-            <div class="instructions">Enter as much (or as little) detail as you would like about the recipient, occasion, etc.</div>
-            <label for="details">Recipient Details:</label>
+            <label for="details"></label>
             <textarea id="details" name="details" rows="4">{{ request.args.get('details') }}</textarea>
+            <div class="instructions highlight">Refine your search and refresh for more ideas!</div>
             <input type="submit" value="Refresh">
         </form>
         <div class="results">
@@ -250,19 +252,19 @@
         </div>
         <div class="tips">
             <h3>Not finding the perfect gift?</h3>
-            <p>Here are some tips to refine your search:</p>
+            <p>Try these tips to refine your search:</p>
             <ul>
-                <li>💡 Be more specific about the recipient's hobbies and interests.</li>
-                <li>💡 Mention favorite colors, brands, or styles.</li>
-                <li>💡 Think about recent conversations or hints they've dropped.</li>
-                <li>💡 Consider their current needs or wishlist items.</li>
-                <li>💡 Include details about their lifestyle or daily routines.</li>
+                <li>Mention specific categories or types of gifts you’re looking for.</li>
+                <li>Provide more details about the recipient's interests or hobbies.</li>
+                <li>Indicate if you want more broad or more specific gift ideas.</li>
+                <li>Highlight any particular preferences or dislikes.</li>
+                <li>Add context about the occasion to tailor the suggestions.</li>
             </ul>
         </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Shoppr. All rights reserved.</p>
+        <p>&copy; 2024 GiftScout. All rights reserved.</p>
     </div>
 </body>
 </html>

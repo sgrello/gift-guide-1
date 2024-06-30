@@ -53,6 +53,10 @@ def recommend():
     return render_template('recommendations.html', products=products)
 
 
+@app.route('/gift_guide_collection')
+def gift_guide_collection():
+    return render_template('gift_guide_collection.html')
+
 
 @app.route('/guide_for_him')
 def guide_for_him():
