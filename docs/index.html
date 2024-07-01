@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Find the Perfect Gift | Shoppr</title>
+    <title>GiftScout | Find the Perfect Gift in Seconds</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -43,39 +43,6 @@
             background-color: #0056b3;
             border-radius: 5px;
         }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown .dropbtn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 15px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
         .header {
             background-color: #007bff;
             color: white;
@@ -86,6 +53,10 @@
         .header h1 {
             font-size: 36px;
             margin: 0;
+        }
+        .header p {
+            font-size: 18px;
+            margin: 10px 0 0;
         }
         .container {
             max-width: 1200px;
@@ -102,10 +73,15 @@
             align-items: center;
         }
         .instructions {
-            font-size: 14px;
+            font-size: 16px;
             color: #555;
             margin-bottom: 20px;
             text-align: center;
+        }
+        .highlight {
+            font-size: 18px;
+            color: #090909;
+            font-weight: normal;
         }
         label {
             margin-bottom: 10px;
@@ -120,6 +96,7 @@
             font-size: 16px;
             margin-bottom: 20px;
             box-sizing: border-box;
+            resize: none;
         }
         input[type="submit"] {
             padding: 10px 20px;
@@ -142,11 +119,38 @@
             font-size: 28px;
             margin-bottom: 20px;
         }
-        .section p {
-            font-size: 16px;
-            margin-bottom: 20px;
+        .how-it-works {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .how-it-works .step {
+            flex: 1;
+            max-width: 300px;
+            padding: 20px;
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .how-it-works .step h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .how-it-works .step p {
+            font-size: 14px;
+            color: #333;
+        }
+        .step .number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
         }
         .section .btn {
+            margin-top: 20px;
             padding: 10px 20px;
             font-size: 16px;
             color: white;
@@ -158,6 +162,44 @@
         }
         .section .btn:hover {
             background-color: #0056b3;
+        }
+        .why-choose-us {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .why-choose-us .feature {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .why-choose-us .feature h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .why-choose-us .feature p {
+            font-size: 14px;
+            color: #333;
+        }
+        .testimonials {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .testimonial {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial p {
+            font-size: 14px;
+            color: #333;
         }
         .footer {
             background-color: #333;
@@ -172,12 +214,6 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .dropdown .dropbtn {
-                width: 100%;
-            }
-            .dropdown-content {
-                width: 100%;
-            }
             .header h1 {
                 font-size: 28px;
             }
@@ -187,17 +223,21 @@
             .container {
                 padding: 15px;
             }
-            .section {
-                padding: 20px 10px;
+            .how-it-works {
+                flex-direction: column;
+                align-items: center;
             }
-            .section h2 {
-                font-size: 24px;
+            .how-it-works .step {
+                max-width: none;
+                width: 80%;
             }
-            .section p {
-                font-size: 14px;
+            .why-choose-us {
+                grid-template-columns: 1fr;
+            }
+            .testimonials {
+                flex-direction: column;
             }
         }
-
         @media (max-width: 480px) {
             .header h1 {
                 font-size: 24px;
@@ -211,64 +251,162 @@
             .section h2 {
                 font-size: 20px;
             }
-            .section p {
+            .how-it-works .step h3 {
+                font-size: 18px;
+            }
+            .how-it-works .step p {
+                font-size: 12px;
+            }
+            .why-choose-us .feature h3 {
+                font-size: 16px;
+            }
+            .why-choose-us .feature p {
                 font-size: 12px;
             }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const examples = [
+                "Looking for a birthday gift for a 10-year-old boy who loves dinosaurs",
+                "Gift ideas for a colleague who loves coffee and reading",
+                "Christmas present for a teenager interested in technology",
+                "Anniversary gift for a couple who enjoys cooking",
+                "Graduation gift for a high school student heading to college",
+                "What to get a yoga enthusiast who has everything",
+                "Unique gifts for a cat lover's birthday",
+                "Secret Santa ideas for a coworker you barely know",
+                "Valentine's Day present for someone who loves gardening",
+                "Housewarming gift for a friend moving to a new city",
+                "Funny gifts for a prankster brother",
+                "Romantic anniversary gift for a wife who loves jewelry",
+                "Eco-friendly gifts for an environmentally conscious friend",
+                "Tech gadgets for a husband who loves to tinker",
+                "Gifts for a bookworm who’s read everything",
+                "Surprise gift for a best friend who loves adventure",
+                "Fitness gear for a gym enthusiast",
+                "Luxury gifts for a 25th wedding anniversary",
+                "Personalized gifts for a baby's first birthday",
+                "Crafting supplies for a DIY queen",
+                "Music lover gift for someone who collects vinyl records",
+                "Travel accessories for a friend who loves to explore",
+                "Cooking gadgets for a budding chef",
+                "Sustainable gifts for someone living a zero-waste lifestyle",
+                "Pet-friendly gifts for a dog parent",
+                "Art supplies for an aspiring artist",
+                "Gourmet food basket for a foodie",
+                "Unique stocking stuffers for Christmas",
+                "Birthday present for a gamer who has every console",
+                "Cool gadgets for a tech-savvy teenager",
+                "Handmade gifts for a craft fair enthusiast",
+                "Wine and cheese set for a connoisseur",
+                "Spa day essentials for someone who needs to relax",
+                "Outdoor gear for an avid hiker",
+                "Gifts for a history buff who loves collecting antiques",
+                "Fashion accessories for a style icon",
+                "Eco-friendly gifts for a sustainable living advocate",
+                "Gardening tools for a green thumb",
+                "Gifts for a mystery lover who enjoys puzzles"
+            ];
+            const randomExample = examples[Math.floor(Math.random() * examples.length)];
+            document.getElementById('details').placeholder = randomExample;
+        });
+    </script>
+
 </head>
 <body>
     <div class="nav">
-        <a href="index.html" class="logo">Shoppr</a>
+        <a href="index.html" class="logo">GiftScout</a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn">Gift Guides</button>
-                <div class="dropdown-content">
-                    <a href="guide_for_him.html">For Him</a>
-                    <a href="guide_for_her.html">For Her</a>
-                </div>
-            </div>
+            <a href="guide_for_him.html">Gift Guides</a>
             <a href="">About</a>
             <a href="">Contact</a>
         </div>
     </div>
 
     <div class="header">
-        <h1>Find the Perfect Gift</h1>
-        <p>Discover the best gifts for any occasion</p>
+        <h1>Find the Perfect Gift in Seconds</h1>
+        <p>No more endless searching. Personalized ideas in one click.</p>
     </div>
 
     <div class="container">
-        <form action="recommendations.html" method="post">
-            <div class="instructions">Enter as much (or as little) detail as you would like about the recipient, occasion, etc.</div>
-            <label for="details">Recipient Details:</label>
+        <form action="recommendations.html" method="get">
+            <div class="instructions highlight">Enter as much (or as little) 
+                information as you'd like about the recipient, occasion, and more!</div>
+                
+            <label for="details"></label>
             <textarea id="details" name="details" rows="4" placeholder="Enter details about the recipient..."></textarea>
+            <div class="instructions">(Psst... We promise not to save any of your info!)</div>
             <input type="submit" value="Find Gifts">
         </form>
     </div>
 
-    <!-- Placeholder for additional sections -->
     <div class="section">
         <h2>How It Works</h2>
-        <p>Learn how our AI-powered gift recommendation engine helps you find the perfect gifts for your loved ones.</p>
+        <div class="how-it-works">
+            <div class="step">
+                <div class="number">1</div>
+                <h3>Provide Details</h3>
+                <p>Give us the scoop on the recipient and the occasion. The more details you share, the better our AI can find the perfect gift! 
+                    Whether it's their hobbies, favorite colors, or quirky traits, every bit helps!</p>
+            </div>
+            <div class="step">
+                <div class="number">2</div>
+                <h3>Generate Suggestions</h3>
+                <p>Our smart AI generates personalized gift ideas based on your input, 
+                    taking into account the recipient's interests, preferences, and the special occasion. 
+                    It's like having a personal shopper who knows exactly what will make them smile!</p>
+            </div>
+            <div class="step">
+                <div class="number">3</div>
+                <h3>Browse and Refine</h3>
+                <p>Dive into your personalized suggestions! 
+                    Don't see the perfect gift? Refine your search and refresh for even more amazing options.
+                Try adding more detail or asking in a different way...the possibilities are endless!</p>
+            </div>
+        </div>
+        <p>Learn more about how our AI-powered gift recommendation engine helps you find the perfect gifts for your loved ones.</p>
         <a href="" class="btn">Learn More</a>
     </div>
 
     <div class="section">
         <h2>Why Choose Us</h2>
-        <p>Discover the benefits of using Shoppr for all your gift-giving needs, from personalized recommendations to exclusive deals.</p>
+        <div class="why-choose-us">
+            <div class="feature">
+                <h3>Privacy First</h3>
+                <p>We never collect or save any user information. Your details stay private, always.</p>
+            </div>
+            <div class="feature">
+                <h3>Top-Quality Recommendations</h3>
+                <p>Our suggestions are curated from high-quality, trusted sources to ensure you find the perfect gift.</p>
+            </div>
+            <div class="feature">
+                <h3>Hyper-Personalized</h3>
+                <p>Our AI-driven algorithms are tailored to your input, ensuring every recommendation is spot-on.</p>
+            </div>
+        </div>
+        <p>Discover the benefits of using GiftScout for all your gift-giving needs, from personalized recommendations to exclusive deals.</p>
         <a href="" class="btn">Find Out More</a>
     </div>
 
     <div class="section">
         <h2>Customer Testimonials</h2>
-        <p>See what our satisfied customers have to say about their experience with Shoppr.</p>
-        <a href="" class="btn">Read Testimonials</a>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"GiftScout made finding the perfect gift for my wife so easy! She loved the personalized suggestions." - John D.</p>
+            </div>
+            <div class="testimonial">
+                <p>"I was struggling to find a unique gift for my friend's birthday until I used GiftScout. Highly recommend!" - Sarah K.</p>
+            </div>
+            <div class="testimonial">
+                <p>"The best gift recommendation service I've ever used. It took the stress out of holiday shopping." - Emily R.</p>
+            </div>
+        </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Shoppr. All rights reserved.</p>
+        <p>&copy; 2024 GiftScout. All rights reserved.</p>
     </div>
 </body>
 </html>
